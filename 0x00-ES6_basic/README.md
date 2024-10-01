@@ -9,12 +9,14 @@ This project covers fundamentals ECMAScript 6 (ES6) features that improve JavaSc
 
 ## Setup Instructions
 ### Install NodeJS 12.x
-```curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -  sudo apt installl nodejs -y
+```
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - 
+sudo apt installl nodejs -y
 ```
 
 ### Install Dependencies
 _Run the following command in your project directory:_
-    npm install
+`npm install`
 
 ## Configuration Files
 - Package.json: Includes scripts for linting, testing and development.
@@ -22,12 +24,12 @@ _Run the following command in your project directory:_
 - .esclintrc.js: ESLint settings for the project, including Jest integration.
 
 ## Running thr Project
-**Run Code:
-    npm run dev <file-name>
+**Run Code:**
+`npm run dev <file-name>`
 
-**Run Tests:
+**Run Tests:**
     npm test
 
-**Run Linter:
+**Run Linter:**
     npm run lint
  
