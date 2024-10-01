@@ -28,8 +28,8 @@ _Run the following command in your project directory:_
 `npm run dev <file-name>`
 
 **Run Tests:**
-    npm test
+`npm test`
 
 **Run Linter:**
-    npm run lint
+`npm run lint`
  
