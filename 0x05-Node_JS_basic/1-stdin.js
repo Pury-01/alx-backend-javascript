@@ -8,8 +8,8 @@ const r1 = readline.createInterface({
 	output: process.stdout
 });
 
-r1.question("Welcome to Holberton School, what is your name?\n", (name) => {
-	console.log(`Your name is: ${name}`);
+r1.question("Welcome to Holberton School, what is your name?\n", (INPUT) => {
+	console.log(`Your name is: ${INPUT}`);
 	r1.close(); // close interface
 });
 
