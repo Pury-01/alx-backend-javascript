@@ -38,7 +38,7 @@ function countStudents(path) {
 
 		// log each field and it's respective students
 		for (const [field, firstnames] of Object.entries(fields)) {
-			console.log(`Number of students in ${field}: ${firstnames.length}. List: ${firstnames.join(',')}`);
+			console.log(`Number of students in ${field}: ${firstnames.length}. List: ${firstnames.join(', ')}`);
 		}
 	} catch (error) {
 		throw new Error('Cannot load the database');
