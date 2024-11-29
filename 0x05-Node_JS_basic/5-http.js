@@ -19,7 +19,7 @@ const app = http.createServer((req, res) => {
     let output = '';
     const originalLog = console.log;
     console.log = (message) => {
-      output += `${message}`;
+      output += `${message}\n`;
     };
 
     // call countStudents and handle asynchronous response
