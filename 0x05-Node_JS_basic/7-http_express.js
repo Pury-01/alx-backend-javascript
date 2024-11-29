@@ -1,6 +1,7 @@
 // small HTTP server using Express
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 
@@ -13,8 +14,7 @@ const countStudents = (database) => new Promise((resolve, reject) => {
     }
 
     const lines = data.split('\n').filter((line) => line.trim() !== '');
-    lines.shift(); // Remove headers
-    const students = lines.map((line) => line.split(',')).filter((cols) => cols.length === 4);
+    const students = lines.slice(1).map((line) => line.split(',')).filter((cols) => cols.length === 4);
 
     const summary = {};
     students.forEach(([firstName, , , field]) => {
@@ -28,6 +28,7 @@ const countStudents = (database) => new Promise((resolve, reject) => {
       `Number of students: ${students.length}`,
       ...Object.entries(summary).map(([field, names]) => `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`),
     ];
+
     resolve(output);
   });
 });
@@ -37,10 +38,10 @@ app.get('/', (req, res) => res.send('Hello Holberton School!'));
 
 // Route for "/students"
 app.get('/students', async (req, res) => {
-  const database = process.argv[2];
+  let database = process.argv[2];
+
   if (!database) {
-    res.status(500).send('Database file not provided');
-    return;
+    database = path.join(__dirname, 'students.csv');
   }
 
   try {

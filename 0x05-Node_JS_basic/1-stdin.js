@@ -1,19 +1,24 @@
-// program that asks for name when executed on cli
-// import readline to handle input/ooutput
+// Import the readline module
 const readline = require('readline');
 
-// create interface for reading input from sttdin
-const r1 = readline.createInterface({
+// Create an interface for reading input from stdin
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-r1.question('Welcome to Holberton School, what is your name?\n', (INPUT) => {
-  console.log(`Your name is: ${INPUT}`);
-  r1.close(); // close interface
+// Display the initial message
+console.log('Welcome to Holberton School, what is your name?');
+
+// Listen for user input
+rl.on('line', (input) => {
+  // Log the user's name
+  console.log(`Your name is: ${input}`);
+  rl.close(); // Close the readline interface after processing input
 });
 
-r1.on('close', () => {
+// Handle the `close` event
+rl.on('close', () => {
   console.log('This important software is now closing');
-  process.exit(0);
+  process.exit(0); // Exit the program
 });

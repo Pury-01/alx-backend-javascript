@@ -17,13 +17,14 @@ function countStudents(path) {
       return;
     }
     // separate header from data
-    const [header, ...students] = validLines;
+    validLines.shift();
+    const students = validLines;
 
     // object to store field-specific data
     const fields = {};
 
     students.forEach((student) => {
-      const [firstname, lastname, age, field] = student.split(',');
+      const [firstname, , , field] = student.split(',');
       if (field) {
         if (!fields[field]) {
           fields[field] = [];
