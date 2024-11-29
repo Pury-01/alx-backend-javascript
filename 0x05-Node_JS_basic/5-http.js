@@ -19,7 +19,7 @@ const app = http.createServer((req, res) => {
     let output = '';
     const originalLog = console.log;
     console.log = (message) => {
-      output += `${message}\n`;
+      output += `${message}`;
     };
 
     // call countStudents and handle asynchronous response
@@ -40,6 +40,8 @@ const app = http.createServer((req, res) => {
 });
 
 // listen on port 1245
-app.listen(1245);
+app.listen(1245, () => {
+  console.log('...');
+});
 
-module.export = app;
+module.exports = app;
